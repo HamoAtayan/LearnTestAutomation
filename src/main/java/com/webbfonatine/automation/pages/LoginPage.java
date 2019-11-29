@@ -1,6 +1,5 @@
-package com.webbfontaine.automation.pages;
+package com.webbfonatine.automation.pages;
 
-import com.webbfonatine.automation.pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

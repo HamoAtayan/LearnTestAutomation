@@ -1,11 +1,13 @@
 import com.webbfonatine.automation.pages.CreateFormMPage;
 import com.webbfonatine.automation.pages.HomePage;
+import com.webbfonatine.automation.pages.LoginPage;
 import com.webbfonatine.automation.pages.tabs.HeaderTab;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 
 /**
@@ -14,18 +16,18 @@ import org.testng.annotations.BeforeTest;
 public class Test {
     WebDriver driver;
 
-    @BeforeTest
+    @BeforeClass
     public void precondition() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
-        System.setProperty("webdriver.chrome.driver", "src//main//resources//chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
         driver = new ChromeDriver(options);
         driver.get("http://ngqa.webbfontaine.am:8086/formx");
     }
 
     @org.testng.annotations.Test
     public void checkPOM() {
-        com.webbfontaine.automation.pages.LoginPage loginPage = new com.webbfontaine.automation.pages.LoginPage(driver);
+        LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
         HeaderTab headerTab = new HeaderTab(driver);
         CreateFormMPage createFormMPage = new CreateFormMPage(driver);
